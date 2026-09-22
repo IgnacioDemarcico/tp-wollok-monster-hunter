@@ -1,0 +1,28 @@
+import monstruos.*
+
+describe "Tests de Blangonga y sus partes" {
+
+  test "El Blangonga con su vida al maximo no esta muerto" {
+    assert.notThat(blangonga.estaMuerto())
+  }
+
+  test "El Blangonga con 0 de vida esta muerto" {
+    blangonga.recibirDanio(1500)
+    assert.that(blangonga.estaMuerto())
+  }
+
+  test "La cola del Blangonga con vida al maximo, despues de recibir un ataque con 100 de danio total, queda con 390 de vida" {
+    colaBlangonga.recibirDanio(100)
+    assert.equals(390, colaBlangonga.vida())
+  }
+
+  test "La cola de Blangonga con la vida al maximo nos da una lista de materiales vacia" {
+    assert.equals([], colaBlangonga.materiales())
+  }
+
+  test "La cola de Blangonga con 0 de vida, nos da una lista de materiales con un elemento" {
+    colaBlangonga.recibirDanio(4000)
+    assert.equals(1, colaBlangonga.materiales().size())
+  }
+
+}

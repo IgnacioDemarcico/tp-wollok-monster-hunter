@@ -14,10 +14,6 @@ object blangonga {
 
   method estaCojeando() = not self.estaMuerto() && vida <= vidaMax * 0.20
 
-  method materiales() {
-    const materialesMonstruo = if (self.estaMuerto()) materialBase else []
-    return materialesMonstruo + partes.flatMap({ parte => parte.materiales() })
-  }
 }
 
 object cabezaBlangonga {
